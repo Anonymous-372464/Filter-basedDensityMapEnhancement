@@ -26830,7 +26830,7 @@ const zO = {
         return;
       } else if (this.params.dataset !== this.datasetName) {
         this.datasetName = this.params.dataset;
-        let r = "/datasets/" + this.datasetName;
+        let r = "Filter-basedDensityMapEnhancement/datasets/" + this.datasetName;
         $t.fetchData(r + "_256x256.csv").then((o) => {
           if (!o) throw new Error("undefined data");
           this.multiscaleData.set(0, o),
