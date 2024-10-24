@@ -23342,15 +23342,16 @@ class W$ {
   }
   load() {
     if (this.worker) return new Promise((n) => n());
-    const t =
-      "/Filter-basedDensityMapEnhancement" +
-      (import.meta.url.includes("src") ? "/src" : "");
+    const t = import.meta.url.includes("src") ? "/src" : "";
     return (
       (this.worker = new Worker(`${t}/worker/cv.worker.js`)),
       this.load2DColormap(t),
       (this.worker.onmessage = (n) => (this._status = ["done", n])),
       (this.worker.onerror = (n) => (this._status = ["error", n])),
-      this._dispatch({ msg: "load", openCvPath: `${t}/worker/opencv.js` })
+      this._dispatch({
+        msg: "load",
+        openCvPath: `${t}/worker/opencv.js`,
+      })
     );
   }
   enhanceDensityMap(t, n, r) {
