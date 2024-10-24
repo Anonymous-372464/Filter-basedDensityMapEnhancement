@@ -23345,13 +23345,13 @@ class W$ {
     const t = "/Filter-basedDensityMapEnhancement"+
     (import.meta.url.includes("src") ? "/src" : "");
     return (
-      (this.worker = new Worker(`${t}/dist2/assets/worker/cv.worker.js`)),
+      (this.worker = new Worker(`${t}/assets/worker/cv.worker.js`)),
       this.load2DColormap(t),
       (this.worker.onmessage = (n) => (this._status = ["done", n])),
       (this.worker.onerror = (n) => (this._status = ["error", n])),
       this._dispatch({
         msg: "load",
-        openCvPath: `${t}/dist2/assets/worker/opencv.js`,
+        openCvPath: `${t}/assets/worker/opencv.js`,
       })
     );
   }
@@ -23383,7 +23383,7 @@ class W$ {
             imgData: i.getImageData(0, 0, n, r),
           });
       }),
-      (l.src = `${t}/dist2/assets/2d_colormap.png`);
+      (l.src = `${t}/assets/2d_colormap.png`);
   }
   redraw2DColormap(t) {
     return this._dispatch({ msg: "adjusting2d", locsStr: t });
