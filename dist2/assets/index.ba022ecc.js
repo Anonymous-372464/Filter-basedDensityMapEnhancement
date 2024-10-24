@@ -23342,7 +23342,7 @@ class W$ {
   }
   load() {
     if (this.worker) return new Promise((n) => n());
-    const t = "/Filter-basedDensityMapEnhancement/"
+    const t = "/Filter-basedDensityMapEnhancement/"+
     (import.meta.url.includes("src") ? "src" : "");
     return (
       (this.worker = new Worker(`${t}/dist2/assets/worker/cv.worker.js`)),
