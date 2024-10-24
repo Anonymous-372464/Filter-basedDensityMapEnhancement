@@ -47,13 +47,13 @@ class CV {
     // avoid duplication of workers
     if(this.worker) { return new Promise(res => res()); }
     const prefix = import.meta.url.includes('src') ? '/src' : '';
-    this.worker = new Worker(`${prefix}/worker/cv.worker.js`) // load worker
+    this.worker = new Worker(`${prefix}/assets/worker/cv.worker.js`) // load worker
     this.load2DColormap(prefix);
 
     // Capture events and save [status, event] inside the _status object
     this.worker.onmessage = e => this._status = ['done', e]
     this.worker.onerror = e => this._status = ['error', e]
-    return this._dispatch({ msg: 'load', openCvPath: `${prefix}/worker/opencv.js` })
+    return this._dispatch({ msg: 'load', openCvPath: `${prefix}/assets/worker/opencv.js` })
   }
 
   /**
@@ -81,7 +81,7 @@ class CV {
       ctx.drawImage(img, 0, 0, w, h);
       this._dispatch({msg: 'sending2d', imgData: ctx.getImageData(0,0,w,h)})
     };
-    img.src = `${prefix}/2d_colormap.png`
+    img.src = `${prefix}/assets/2d_colormap.png`
   }
 
   redraw2DColormap(locsStr) {
