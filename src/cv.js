@@ -46,7 +46,7 @@ class CV {
   load() {
     // avoid duplication of workers
     if(this.worker) { return new Promise(res => res()); }
-    const prefix = import.meta.url.includes('src') ? '/src' : '';
+    const prefix = import.meta.url.includes('src') ? 'src' : '';
     this.worker = new Worker(`${prefix}/assets/worker/cv.worker.js`) // load worker
     this.load2DColormap(prefix);
 
