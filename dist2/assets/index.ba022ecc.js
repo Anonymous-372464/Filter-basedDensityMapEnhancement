@@ -23342,8 +23342,8 @@ class W$ {
   }
   load() {
     if (this.worker) return new Promise((n) => n());
-    const t = "/Filter-basedDensityMapEnhancement"+
-    (import.meta.url.includes("src") ? "/src" : "");
+    const t = "/Filter-basedDensityMapEnhancement/src";
+    // (import.meta.url.includes("src") ? "/src" : "");
     return (
       (this.worker = new Worker(`${t}/assets/worker/cv.worker.js`)),
       this.load2DColormap(t),
@@ -27846,7 +27846,7 @@ const rP = {
     },
   },
   oP =
-    "/Filter-basedDensityMapEnhancement/assets/density-plot-logo.764c2348.svg";
+    "/Filter-basedDensityMapEnhancement/src/assets/density-plot-logo.764c2348.svg";
 const uv = (e) => (xu("data-v-faa139e9"), (e = e()), Cu(), e),
   iP = uv(() =>
     ae(
