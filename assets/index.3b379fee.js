@@ -23194,7 +23194,7 @@ function I$(e) {
   return e
     .trim()
     .split(
-      `\r
+      `
 `
     )
     .map((t) => t.split(",").map((n) => parseInt(n)));
